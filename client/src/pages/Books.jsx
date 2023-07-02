@@ -31,7 +31,7 @@ const Books = () => {
         ))}
       </div>
       <button>
-        <Link to="/add">Add New Book</Link>
+        <Link to="/add">Add New Book!</Link>
       </button>
     </div>
   );
