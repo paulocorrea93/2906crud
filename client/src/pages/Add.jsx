@@ -12,6 +12,15 @@ const Add = () => {
     setBook((prev) => ({...prev, [e.target.name]: e.target.value}))
   }
 
+  const handleClick = async e => {
+    e.preventDefault()
+    try{
+      await axios.post("http://localhost:5000/books", book)
+    }catch(err){
+
+    }
+  }
+
   return (
     <div className="form">
       <h1>Add New Book</h1>
