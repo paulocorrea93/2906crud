@@ -8,6 +8,10 @@ const Add = () => {
     cover: "",
   });
 
+  const handleChange = (e) => {
+    setBook((prev) => ({...prev, [e.target.name]: e.target.value}))
+  }
+
   return (
     <div className="form">
       <h1>Add New Book</h1>
