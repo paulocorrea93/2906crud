@@ -26,14 +26,14 @@ app.get("/books", (req, res) => {
   });
 });
 
-app.delete("books/:id", (req, res) => {
+app.delete("/books/:id", (req, res) => {
   const bookId = req.params.id;
   const q = "DELETE FROM books WHERE id = ?";
 
   db.query(q, [bookId], (err, data) => {
-    if(err) return res.json(err);
-    return res.json("Book has been delete successfully")
-  })
+    if (err) return res.json(err);
+    return res.json("Book has been delete successfully");
+  });
 });
 
 app.post("/books", (req, res) => {
