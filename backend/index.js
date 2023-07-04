@@ -32,13 +32,14 @@ app.delete("/books/:id", (req, res) => {
 
   db.query(q, [bookId], (err, data) => {
     if (err) return res.json(err);
-    return res.json("Book has been delete successfully");
+    return res.json(data);
   });
 });
 
 app.put("/books/:id", (req, res) => {
   const bookId = req.params.id;
-  const q = "UPDATE books SET `title` = ?, `desc` = ?, `price` = ?, `cover` = ? WHERE id = ?";
+  const q =
+    "UPDATE books SET `title`= ?, `desc`= ?, `price`= ?, `cover`= ? WHERE id = ?";
 
   const values = [
     req.body.title,
@@ -48,8 +49,8 @@ app.put("/books/:id", (req, res) => {
   ];
 
   db.query(q, [...values, bookId], (err, data) => {
-    if (err) return res.json(err);
-    return res.json("Book has been updated successfully");
+    if (err) return res.send(err);
+    return res.json(data);
   });
 });
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import {  useNavigate, useLocation } from "react-router-dom";
 
 const Update = () => {
   const [book, setBook] = useState({
@@ -22,7 +22,7 @@ const Update = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.put("http://localhost:5000/books", + bookId, book);
+      await axios.put(`http://localhost:5000/books/${bookId}`, book);
       navigate("/");
     } catch (err) {
       console.log(err);
