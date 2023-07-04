@@ -54,7 +54,7 @@ const Update = () => {
         name="cover"
       />
 
-      <button onClick={handleClick}>Update</button>
+      <button className="formButton" onClick={handleClick}>Update</button>
     </div>
   );
 };
