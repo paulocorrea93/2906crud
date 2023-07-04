@@ -49,7 +49,7 @@ app.put("/books/:id", (req, res) => {
 
   db.query(q, [...values, bookId], (err, data) => {
     if (err) return res.json(err);
-    return res.json("Book has been update successfully");
+    return res.json("Book has been updated successfully");
   });
 });
 
