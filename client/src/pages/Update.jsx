@@ -11,6 +11,9 @@ const Update = () => {
   });
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const bookId = location.pathname.split("/")[2];
 
   const handleChange = (e) => {
     setBook((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -19,10 +22,10 @@ const Update = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/books", book);
+      await axios.put("http://localhost:5000/books", + bookId, book);
       navigate("/");
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   };
 
@@ -54,7 +57,9 @@ const Update = () => {
         name="cover"
       />
 
-      <button className="formButton" onClick={handleClick}>Update</button>
+      <button className="formButton" onClick={handleClick}>
+        Update
+      </button>
     </div>
   );
 };
