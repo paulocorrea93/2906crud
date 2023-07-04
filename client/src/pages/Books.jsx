@@ -20,7 +20,7 @@ const Books = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/books/${id}`);
-      window.location.reload()
+      window.location.reload();
     } catch (err) {
       console.log(err);
     }
@@ -39,7 +39,9 @@ const Books = () => {
             <button className="delete" onClick={() => handleDelete(book.id)}>
               Delete
             </button>
-            <button className="update">Update</button>
+            <button className="update">
+              <Link to={`/update/${book.id}`}>Update</Link>
+            </button>
           </div>
         ))}
       </div>
